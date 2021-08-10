@@ -1,0 +1,1 @@
+Flask is a micro web framework written in Python. It’s has a small and easy-to-extend core: it’s a microframework that doesn’t include an ORM or such features. It does have many features like url routing, template engine. It is a WSGI web app framework.
