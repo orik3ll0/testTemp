@@ -20,7 +20,7 @@ class Test_tagLower(unittest.TestCase):
         tag_name = 'title'
 
         with pytest.raises(Exception):
-            self.assertNotIsInstance(self, r)
+            self.assertNotIsInstance(r, requests.models.Response)
 
         with pytest.raises(Exception):
             self.assertIsNone(tag_name)
