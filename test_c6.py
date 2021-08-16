@@ -7,9 +7,9 @@ import pytest
 class TagLower:
 
     def wikipedia(response, tag_name):
-        contentText = response.text
+        content_text = response.text
         pattern = r"<{0}>(.*?)</{0}>".format(tag_name)
-        reuslt = re.search(pattern, contentText)
+        reuslt = re.search(pattern, content_text)
         return reuslt.group(1).lower()
 
 

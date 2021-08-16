@@ -4,13 +4,13 @@ import re
 
 class GetDataFromUrl:
 
-    def tagLower(response, tag_name):
-        contentText = response.text
+    def tag_Lower(response, tag_name):
+        content_text = response.text
         pattern = r"<{0}[^>]*>(.*?)<\s*/\s*{0}>".format(tag_name)
-        result = re.search(pattern, contentText)
+        result = re.search(pattern, content_text)
         return print(result.group(1).lower())
 
     url = "https://en.wikipedia.org/w/index.php"
     r = requests.get(url="https://en.wikipedia.org/w/index.php")
 
-    tagLower(r, 'title')
+    tag_Lower(r, 'title')
