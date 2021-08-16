@@ -23,17 +23,10 @@ class Test_tagLower(unittest.TestCase):
             self.assertNotIsInstance(r, requests.models.Response)
 
         with pytest.raises(Exception):
-            self.assertIsNone(tag_name)
+            assert isinstance(tag_name, str)
 
         with pytest.raises(Exception):
             self.assertNotIn(tag_name, r.text)
-
-
-    def test_wikipedia(self):
-        url = "https://en.wikipedia.org/w/index.php"
-        r = requests.get(url=url)
-        result = tagLower.wikipedia(r, 'title')
-        self.assertTrue(r.status_code, 200)
 
 
 if __name__ == '__main__':
