@@ -8,5 +8,3 @@
 #       *Tuple is immutable - we can NOT change/modify the values
 # 3) 
 #    If we have a large number of elements tuple is faster than list, because of size differences. List is the larger size than tuple.
-# 4) 
-#    

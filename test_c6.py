@@ -19,12 +19,15 @@ class Test_tagLower(unittest.TestCase):
         r = requests.get(url=url)
         tag_name = 'title'
 
+        #checking if r is instance of requests.models.Response
         with pytest.raises(Exception):
-            self.assertNotIsInstance(r, requests.models.Response)
+            assert not isinstance(r, requests.models.Response)
 
+        #checking if tag_name is instance of string
         with pytest.raises(Exception):
-            assert isinstance(tag_name, str)
+            assert not isinstance(tag_name, str)
 
+        #checking if tag_name in text
         with pytest.raises(Exception):
             self.assertNotIn(tag_name, r.text)
 
