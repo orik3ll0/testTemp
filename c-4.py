@@ -1,6 +1,7 @@
 import requests
 import re
 
+
 class GetDataFromUrl:
 
     def tagLower(response, tag_name):
@@ -13,5 +14,3 @@ class GetDataFromUrl:
     r = requests.get(url="https://en.wikipedia.org/w/index.php")
 
     tagLower(r, 'title')
-
-    #better way could be with bs4

@@ -1,4 +1,4 @@
-def findmatch(grid, word, x, y, nrow, ncol, level):
+def find_match(grid, word, x, y, nrow, ncol, level):
     l = len(word)
 
     # word matched
@@ -17,12 +17,12 @@ def findmatch(grid, word, x, y, nrow, ncol, level):
         grid[x].replace(grid[x][y], "#")
 
         # finding word in 6 directions( Horizontally, Vertically, Diagonally )
-        res = (findmatch(grid, word, x - 1, y, nrow, ncol, level + 1) |
-               findmatch(grid, word, x + 1, y, nrow, ncol, level + 1) |
-               findmatch(grid, word, x, y - 1, nrow, ncol, level + 1) |
-               findmatch(grid, word, x, y + 1, nrow, ncol, level + 1) |
-               findmatch(grid, word, x+1, y + 1, nrow, ncol, level + 1) |
-               findmatch(grid, word, x-1, y + 1, nrow, ncol, level + 1))
+        res = (find_match(grid, word, x - 1, y, nrow, ncol, level + 1) |
+               find_match(grid, word, x + 1, y, nrow, ncol, level + 1) |
+               find_match(grid, word, x, y - 1, nrow, ncol, level + 1) |
+               find_match(grid, word, x, y + 1, nrow, ncol, level + 1) |
+               find_match(grid, word, x+1, y + 1, nrow, ncol, level + 1) |
+               find_match(grid, word, x-1, y + 1, nrow, ncol, level + 1))
 
         # marking this cell as unvisited again
         grid[x].replace(grid[x][y], temp)
@@ -31,17 +31,18 @@ def findmatch(grid, word, x, y, nrow, ncol, level):
         return False
 
 
-def checkMatch(grid, word, nrow, ncol) :
+def check_match(grid, word, nrow, ncol):
     word_length = len(word)
 
-    if (word_length > nrow or word_length > ncol):  #check if word related to grid size
+    # check if word related to grid size
+    if (word_length > nrow or word_length > ncol):
         return False
 
     for i in range(nrow):
         for j in range(ncol):
             # If first letter matches, then recur and check
             if (grid[i][j] == word[0]):
-                if (findmatch(grid, word, i, j, nrow, ncol, 0)):
+                if (find_match(grid, word, i, j, nrow, ncol, 0)):
                     return True
     return False
 
@@ -59,7 +60,7 @@ if __name__ == "__main__":
     my_word = input("Type 3 letters: ")
 
     # Checking if word exists or not
-    if (checkMatch(grid, my_word.upper(), nrow, ncol)):
+    if (check_match(grid, my_word.upper(), nrow, ncol)):
         print(True)
     else:
         print(False)

@@ -3,7 +3,8 @@ import re
 import unittest
 import pytest
 
-class tagLower:
+
+class TagLower:
 
     def wikipedia(response, tag_name):
         contentText = response.text
@@ -12,22 +13,22 @@ class tagLower:
         return reuslt.group(1).lower()
 
 
-class Test_tagLower(unittest.TestCase):
+class TestTagLower(unittest.TestCase):
 
     def test_errors(self):
         url = "https://en.wikipedia.org/w/index.php"
         r = requests.get(url=url)
         tag_name = 'title'
 
-        #checking if r is instance of requests.models.Response
+        # checking if r is instance of requests.models.Response
         with pytest.raises(Exception):
             assert not isinstance(r, requests.models.Response)
 
-        #checking if tag_name is instance of string
+        # checking if tag_name is instance of string
         with pytest.raises(Exception):
             assert not isinstance(tag_name, str)
 
-        #checking if tag_name in text
+        # checking if tag_name in textpip install flake8
         with pytest.raises(Exception):
             self.assertNotIn(tag_name, r.text)
 

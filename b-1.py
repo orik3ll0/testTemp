@@ -12,6 +12,11 @@ fieldData = [
 
 df = pd.DataFrame(fieldData, index=[field], columns=['2017', '2018'])
 
-print(df[["2017", "2018"]].astype(str).values.max(axis=1))      #as values
-print(df.astype(str).max(axis = 1, skipna = True))              #as table
-print(df)                                                       #main table
+# as values
+print(df[["2017", "2018"]].astype(str).values.max(axis=1))
+
+# as table
+print(df.astype(str).max(axis=1, skipna=True))
+
+# main table
+print(df)

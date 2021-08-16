@@ -3,6 +3,7 @@ import re
 import unittest
 import pytest
 
+
 class tagLower:
 
     def wikipedia(response, tag_name):
